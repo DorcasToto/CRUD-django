@@ -6,7 +6,8 @@ from django.shortcuts import redirect
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    all_veterinarians = Veterinary.objects.all()
+    return render(request,'index.html',{'vets':all_veterinarians})
 
 def register(request):
 

@@ -8,7 +8,14 @@
     <title>Document</title>
 </head>
 <body>
+    {{user.username}}
     <h3>Hey</h3>
+    {%for vet in vets%}
+    {{vet.name}}
+    {{vet.email}}
+    {{vet.id_no}}
+    {{vet.phone_number}}
+    {%endfor%}
 </body>
 </html>
 {%endblock content%}
