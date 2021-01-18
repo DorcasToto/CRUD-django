@@ -6,11 +6,9 @@ from django.urls import path,include
 
 urlpatterns = [
     path('',views.index,name = 'home'),
-    path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('accounts/register/',views.register, name='registration'),
+    path('register_vet/',views.register_vet,name = 'register_vet')
   
 ]
-
-if settings.DEBUG:
-    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

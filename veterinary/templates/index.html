@@ -2,20 +2,57 @@
 {%block content%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fuga Admin</title>
 </head>
+
 <body>
-    {{user.username}}
-    <h3>Hey</h3>
-    {%for vet in vets%}
-    {{vet.name}}
-    {{vet.email}}
-    {{vet.id_no}}
-    {{vet.phone_number}}
-    {%endfor%}
+    <div class="container">
+        <a href="{% url 'register_vet' %}">
+            Add Vet
+        </a>
+        <div class="table table-striped w-full">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="h5">#</th>
+                        <th class="h5">Full name</th>
+                        <th class="h5">Email Address</th>
+                        <th class="h5">Id Number</th>
+                        <th class="h5">Phone Number</th>
+                        <th class="h5">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for vet in vets%}
+                    <tr>
+                        <td>{{vet.id}}</td>
+                        <td>{{vet.name}}</td>
+                        <td>{{vet.email}}</td>
+                        <td>{{vet.id_no}}</td>
+                        <td>{{vet.phone_number}}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <a href=""><i class="fas fa-pen-square"></i></a>
+                                </div>
+                                <div class="col-sm">
+                                    <a href=""><i class="fas fa-trash-alt text-danger"></i></a>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
+
 </html>
 {%endblock content%}

@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from .models import *
 
 class RegistrationForm(UserCreationForm):
     email=forms.EmailField()
@@ -14,5 +15,10 @@ class RegistrationForm(UserCreationForm):
         if commit:
             user.save()
         return user   
+
+class RegisitervetForm(forms.ModelForm):
+    class Meta:
+        model = Veterinary
+        exclude = ['user']
 
         

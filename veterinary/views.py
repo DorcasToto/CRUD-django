@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from . forms import RegistrationForm
+from . forms import *
 from django.contrib import messages
 from .models import *
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
     all_veterinarians = Veterinary.objects.all()
     return render(request,'index.html',{'vets':all_veterinarians})
+
 
 def register(request):
 
@@ -22,3 +24,18 @@ def register(request):
         registration_form= RegistrationForm()
 
     return render(request, 'register.html', {'registration_form': registration_form})
+
+def register_vet(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = RegisitervetForm(request.POST)
+        if form.is_valid():
+            formVet = form.save(commit=False)
+            formVet.user = current_user
+            formVet.save()
+            return redirect('home')
+
+    else:
+        form = RegisitervetForm()
+
+    return render(request,"register_vet.html",{"formVet":form})
