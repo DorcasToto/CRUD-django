@@ -46,3 +46,24 @@ def delete_vet(request,id):
     messages.error(request, 'The record has been deleted successfully')
     # message = "The record has been deleted successfully"
     return redirect('home')
+
+def update_vet(request,id):
+    if request.POST:
+        vet_form = RegisitervetForm(request.POST)
+
+        if vet_form.is_valid():
+            vet = Veterinary.objects.get(id=id)
+            vett_form = RegisitervetForm(request.POST, instance = vet)
+            vett_form.save() 
+            return redirect('home')
+    else:
+        vet = Veterinary.objects.get(id = id)       
+        vett_form = RegisitervetForm(instance=vet)
+        params = {
+            'form':vett_form,
+            'vet':vet,
+        }
+
+    return render(request,'edit_vet.html',params)  
+
+    
