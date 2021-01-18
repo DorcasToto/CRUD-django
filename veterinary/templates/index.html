@@ -11,6 +11,13 @@
 
 <body>
     <div class="container">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }} text-success">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {%endif%}
         <a href="{% url 'register_vet' %}">
             Add Vet
         </a>
@@ -40,7 +47,7 @@
                                     <a href=""><i class="fas fa-pen-square"></i></a>
                                 </div>
                                 <div class="col-sm">
-                                    <a href=""><i class="fas fa-trash-alt text-danger"></i></a>
+                                    <a href="{%url 'delete_vet' vet.id%}"><i class="fas fa-trash-alt text-danger"></i></a>
                                 </div>
                             </div>
 

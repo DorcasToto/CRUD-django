@@ -39,3 +39,10 @@ def register_vet(request):
         form = RegisitervetForm()
 
     return render(request,"register_vet.html",{"formVet":form})
+
+def delete_vet(request,id):
+    vet = Veterinary.objects.get(id = id)
+    vet.delete()
+    messages.error(request, 'The record has been deleted successfully')
+    # message = "The record has been deleted successfully"
+    return redirect('home')
