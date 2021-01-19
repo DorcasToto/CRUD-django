@@ -18,6 +18,7 @@
             {% endfor %}
         </ul>
         {%endif%}
+        <h3 class="text-center pt-5">All Veterinary Officers</h3>
         <a href="{% url 'register_vet' %}">
             Add Vet
         </a>
@@ -26,10 +27,11 @@
                 <thead>
                     <tr>
                         <th class="h5">#</th>
-                        <th class="h5">Full name</th>
+                        <th class="h5">Username</th>
                         <th class="h5">Email Address</th>
                         <th class="h5">Id Number</th>
                         <th class="h5">Phone Number</th>
+                        <th class="h5">County</th>
                         <th class="h5">Action</th>
                     </tr>
                 </thead>
@@ -41,6 +43,7 @@
                         <td>{{vet.email}}</td>
                         <td>{{vet.id_no}}</td>
                         <td>{{vet.phone_number}}</td>
+                        <td>{{vet.county}}</td>
                         <td>
                             <div class="row">
                                 <div class="col-sm">
