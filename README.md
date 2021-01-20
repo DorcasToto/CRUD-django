@@ -23,6 +23,10 @@ Download [ postman]( https://www.postman.com/downloads/ ) to access the followin
 * [ Onboard a vet endpoint ]( https://fugaadmin.herokuapp.com/api/vets/ )
 * [ Deactivate a vet endpoint ]( https://fugaadmin.herokuapp.com/api/vets/<id>/ )
 * [ Update a vet endpoint ]( https://fugaadmin.herokuapp.com/api/vets/<id>/ )
+
+    #### NB
+    * Replace <id> in the endpoints with the id you would like to modify
+        
                            
 
 
