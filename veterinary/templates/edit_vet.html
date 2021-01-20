@@ -13,7 +13,7 @@
                     </div>
                     <div class="panel-body">
                     
-                        <form action="{%url 'update_vet' vet.id %}" method="POST">
+                        <form method="POST">
                             {% csrf_token %}
                             {% bootstrap_form form %}
                             <div class="form-group">

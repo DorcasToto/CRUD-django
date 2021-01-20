@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import *
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.views.generic import UpdateView,DeleteView
+from django.urls import reverse_lazy
 
 #Api
 from .serializer import *
@@ -49,36 +51,23 @@ def register_vet(request):
         form = RegisitervetForm()
 
     return render(request,"register_vet.html",{"formVet":form})
-@login_required
-def delete_vet(request,id):
-    vet = Veterinary.objects.get(id = id)
-    vet.delete()
-    messages.error(request, 'The record has been deleted successfully')
-    # message = "The record has been deleted successfully"
-    return redirect('home')
-@login_required
-def update_vet(request,id):
-    if request.POST:
-        vet_form = RegisitervetForm(request.POST)
 
-        if vet_form.is_valid():
-            vet = Veterinary.objects.get(id=id)
-            vett_form = RegisitervetForm(request.POST, instance = vet)
-            vett_form.save()
-            messages.info(request, 'The record has been updated successfully')
-            return redirect('home')
-    else:
-        vet = Veterinary.objects.get(id = id)       
-        vett_form = RegisitervetForm(instance=vet)
-        params = {
-            'form':vett_form,
-            'vet':vet,
-        }
+class delete_vet(DeleteView): 
+    model = Veterinary
+    success_url ="/"
+    
+class update_vet(UpdateView):
+    model= Veterinary
+    template_name='edit_vet.html'
+    fields = ['name','email','county','id_no','phone_number']
+    success_url = reverse_lazy('home')
 
-    return render(request,'edit_vet.html',params)  
+
+
+
+
 
 #create api endpoints
-
 class UserViewSet(APIView):
   #create a new admin endpoint
     def post(self, request, format=None):

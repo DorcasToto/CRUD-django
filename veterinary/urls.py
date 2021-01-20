@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.urls import path,include
 
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -16,8 +17,8 @@ urlpatterns = [
     path('accounts/logout/', auth_views.LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),
     path('accounts/register/',views.register, name='registration'),
     path('register_vet/',views.register_vet,name = 'register_vet'),
-    path('delete/<id>/',views.delete_vet,name = 'delete_vet'),
-    path('update/<id>/',views.update_vet,name = 'update_vet'),
+    path('delete/<int:pk>/',views.delete_vet.as_view(),name = 'delete_vet'),
+    path('update/<int:pk>/',views.update_vet.as_view(),name = 'update_vet'),
 
     #api endpoint urls
     path('api/add_admin/',views.UserViewSet.as_view(),name = 'add_admin'),
