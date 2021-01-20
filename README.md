@@ -28,6 +28,9 @@ Download [ postman]( https://www.postman.com/downloads/ ) to access the followin
     * Replace `<id>` in the endpoints with the id you would like to modify
         
                            
+## Published Postman Links
+
+* Click the [ Link ]( https://documenter.getpostman.com/view/10658641/TVzYgaJH#f7db2aed-fd75-44f2-b65b-e34ec19dbf60 ) to Access the pulished endpoints on Postmam
 
 
 ## Setup and installations
