@@ -14,6 +14,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
+@login_required
 def index(request):
     all_veterinarians = Veterinary.objects.all()
     return render(request,'index.html',{'vets':all_veterinarians})
@@ -33,6 +34,7 @@ def register(request):
 
     return render(request, 'accounts/register.html', {'registration_form': registration_form})
 
+@login_required
 def register_vet(request):
     current_user = request.user
     if request.method == 'POST':
@@ -47,14 +49,14 @@ def register_vet(request):
         form = RegisitervetForm()
 
     return render(request,"register_vet.html",{"formVet":form})
-
+@login_required
 def delete_vet(request,id):
     vet = Veterinary.objects.get(id = id)
     vet.delete()
     messages.error(request, 'The record has been deleted successfully')
     # message = "The record has been deleted successfully"
     return redirect('home')
-
+@login_required
 def update_vet(request,id):
     if request.POST:
         vet_form = RegisitervetForm(request.POST)

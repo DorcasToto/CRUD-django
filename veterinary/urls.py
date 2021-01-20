@@ -23,8 +23,7 @@ urlpatterns = [
     path('api/add_admin/',views.UserViewSet.as_view(),name = 'add_admin'),
     path('api/vets/',views.VetList.as_view(),name = 'vets'),
     path('api/vets/<pk>/',views.VetDetailList.as_view(),name = 'vet_detail'),
-    path('api/login/', TokenObtainPairView.as_view(), name='login'),
+    path('api/login/', TokenObtainPairView.as_view(), name='api_login'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-  
 ]
