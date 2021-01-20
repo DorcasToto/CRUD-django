@@ -25,7 +25,7 @@ Download [ postman]( https://www.postman.com/downloads/ ) to access the followin
 * [ Update a vet endpoint ]( https://fugaadmin.herokuapp.com/api/vets/<id>/ )
 
     #### NB
-    * Replace <id> in the endpoints with the id you would like to modify
+    * Replace `<id>` in the endpoints with the id you would like to modify
         
                            
 
