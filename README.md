@@ -18,6 +18,10 @@ As a admin of the web application you will be able to:
 Download [ postman]( https://www.postman.com/downloads/ ) to access the following endpoints
 
 * [ Login endpoint ]( http://127.0.0.1:8000/api/login/ )
+* [ Register admin endpoint ]( http://127.0.0.1:8000/api/login/ )
+* [ List Vets endpoint ]( http://127.0.0.1:8000/api/login/ )
+* [ Onboard a vet endpoint ]( http://127.0.0.1:8000/api/login/ )
+* [ Deactivate a vet endpoint ]( http://127.0.0.1:8000/api/login/ )
 
 
 ## Setup and installations
